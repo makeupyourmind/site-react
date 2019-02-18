@@ -1,33 +1,98 @@
-.App {
+@import "https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900";
+
+
+.remain{
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.msg{
+  color: #6481c8;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 50%;
+.forgot{
+  width: 350px;
+  height: 200px;
+}
+
+.realod{
+  margin-left: 670px;
+}
+
+h2{
+  text-align: center;
+  color: #6481c8;
+}
+
+h1{
+  color: #6481c8;
+}
+
+.table{
+  width: 750px;
+}
+
+.main{
+  margin: 0 auto;
+  width: 240px;
+}
+
+#logIn, #signup{
+  margin-left: 20px;
+}
+
+.form{
+  width: 600px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.app {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.signup-form {
+  padding: 20px;
+  width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.mdc-textfield {
+  margin-bottom: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mdc-textfield__input {
+  width: 100%;
+}
+
+.fade-appear {
+  margin-top: 30px;
+  opacity: .01;
+}
+
+.fade-appear.fade-appear-active {
+  margin-top: 0px;
+  opacity: 1;
+  transition: opacity .5s ease, margin .5s ease;
+}
+
+.fade-leave {
+  margin-top: 0px;
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  margin-top: -30px;
+  opacity: .01;
+  transition: opacity .3s ease, margin .5s ease;
 }
