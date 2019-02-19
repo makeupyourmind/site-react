@@ -19,7 +19,7 @@ app.post('/confirmUser',(req,res) => {
    console.log("password : " + password);
    const { Client } = require('pg');
    const client = new Client({
-     connectionString: 'postgres://postgres:AZ69295@localhost:5432/postgres'
+     connectionString: process.env.DATABASE_URL
    });
 
    client.connect();
@@ -70,7 +70,7 @@ app.get('/api/hello', (req, res) => {
 
     const { Client } = require('pg');
     const client = new Client({
-      connectionString: 'postgres://postgres:AZ69295@localhost:5432/postgres'
+      connectionString: process.env.DATABASE_URL
     });
 
     client.connect();
@@ -98,7 +98,7 @@ app.post('/del',(req,res) => {
   const { Client } = require('pg');
 
 const client = new Client({
- connectionString: 'postgres://postgres:AZ69295@localhost:5432/postgres'
+ connectionString: process.env.DATABASE_URL
 });
 
 client.connect();
@@ -125,7 +125,7 @@ app.post('/api/res',(req,res) => {
   //console.log("req.body.data : " + req.body.data);
 const { Client } = require('pg');
 const client = new Client({
-connectionString: 'postgres://postgres:AZ69295@localhost:5432/postgres'
+connectionString: process.env.DATABASE_URL
 });
 
 client.connect();
@@ -158,7 +158,7 @@ app.post('/forgot', (req, res) => {
 
   const { Client } = require('pg');
   const client = new Client({
-  connectionString: 'postgres://postgres:AZ69295@localhost:5432/postgres'
+  connectionString: process.env.DATABASE_URL
   });
 
   client.connect();
@@ -196,7 +196,7 @@ app.post('/api/world', (req, res) => {
 
     const { Client } = require('pg');
     const client = new Client({
-      connectionString: 'postgres://postgres:AZ69295@localhost:5432/postgres'
+      connectionString: process.env.DATABASE_URL
     });
 
     client.connect();
