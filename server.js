@@ -167,9 +167,9 @@ app.post('/forgot', (req, res) => {
   var passwordToSave = bcrypt.hashSync(newPassword, salt);
 
   client.query("UPDATE usersdata SET password=$1 WHERE email = $2", [passwordToSave, email]);
-  
+
   const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey("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");
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
     to: req.body.post,					//receiver's email
     from: 'marinanov04016776@gmail.com',			//sender's email
