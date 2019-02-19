@@ -179,7 +179,7 @@ app.post('/forgot', (req, res) => {
     to: req.body.post,					//receiver's email
     from: 'marinanov04016776@gmail.com',			//sender's email
     subject: 'Your password',//Subject
-    text: 'Your password is ' + newPassword + '\n\nFrom support site My email : marinanov04016776@gmail.com'		//content		//HTML content
+    text: 'Your password is ' + "'" + newPassword + "'" + '\n\nFrom support site My email : marinanov04016776@gmail.com'		//content		//HTML content
   };
   sgMail.send(msg);
   res.send("ok");

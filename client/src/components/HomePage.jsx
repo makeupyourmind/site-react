@@ -1,10 +1,11 @@
 import React from "react";
-//создаем главный класс и унаследуем компоненты react
-function HomePage({ onSubmit })//принятие свойства
+
+function HomePage({ onSubmit })
 {
 
     return (
         <form>
+         <a href = "/">Log out</a>
           <div className = "form">
            <p>Welcome to Your home page</p>
           </div>

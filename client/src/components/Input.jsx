@@ -1,5 +1,5 @@
 import React from "react";
-//создаем главный класс и унаследуем компоненты react
+
 function Input({ required, id, type, name, placeholder }){
 
     return (
