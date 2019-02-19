@@ -10,6 +10,7 @@ class Admin extends Component{
       <div className = "realod">
       </div>
       <h2>Site Users</h2>
+      <a href = "/" id = "ddc" className = "mdc-button mdc-button--primary mdc-button--raised"><span>Main</span></a>
       <table className="table table-hover table-bordered table-dark" >
       <thead>
                 <tr>

@@ -5,8 +5,8 @@ function HomePage({ onSubmit })
 
     return (
         <form>
-         <a href = "/">Log out</a>
           <div className = "form">
+          <a href = "/">Log out</a>
            <p>Welcome to Your home page</p>
           </div>
         </form>
