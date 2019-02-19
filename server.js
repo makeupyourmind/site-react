@@ -177,30 +177,6 @@ app.post('/forgot', (req, res) => {
     text: 'Your password is ' + newPassword + '\n\nFrom support site My email : marinanov04016776@gmail.com'		//content		//HTML content
   };
   sgMail.send(msg);
-  /*client.query('SELECT password from usersdata WHERE email = $1 ', [email], (err, result) => {
-    if (err) throw err;
-
-    for (let row of result.rows) {
-      console.log("Okay : " + JSON.stringify(row));
-      var temp = result.rows[0].password;
-      //console.log("result : " + result.rows[0].password);
-    }
-    console.log("result : " + temp);
-
-
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey("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");
-    const msg = {
-      to: req.body.post,					//receiver's email
-      from: 'marinanov04016776@gmail.com',			//sender's email
-      subject: 'Your password',//Subject
-      text: 'Your password is ' + newPassword + '\n\nFrom support site My email : marinanov04016776@gmail.com'		//content		//HTML content
-    };
-    sgMail.send(msg);
-
-
-    client.end();
-  })*/
   res.send("ok");
 
 
