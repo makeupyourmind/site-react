@@ -194,7 +194,7 @@ class App extends Component {
   };
 
   delUser = async e =>{
-    alert("HAA");
+    //alert("HAA");
     confirmAlert({
       customUI: ({ onClose }) => {
     return (
