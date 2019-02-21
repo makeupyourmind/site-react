@@ -96,9 +96,6 @@ class App extends Component {
                   </Modal.Header>
                   <Modal.Body>Username or Password is incorrect</Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={onClose}>
-                      Close
-                    </Button>
                   </Modal.Footer>
                 </Modal>
                 </div>
@@ -138,9 +135,6 @@ class App extends Component {
                     </Modal.Header>
                     <Modal.Body>Username is taken.</Modal.Body>
                     <Modal.Footer>
-                      <Button variant="secondary" onClick={onClose}>
-                        Close
-                      </Button>
                     </Modal.Footer>
                   </Modal>
                   </div>
@@ -177,9 +171,6 @@ class App extends Component {
                     </Modal.Header>
                     <Modal.Body>Thank you for registering</Modal.Body>
                     <Modal.Footer>
-                      <Button variant="secondary" onClick={onClose}>
-                        Close
-                      </Button>
                     </Modal.Footer>
                   </Modal>
                   </div>
@@ -275,9 +266,6 @@ class App extends Component {
                       </Modal.Header>
                       <Modal.Body>You receive on your email your password</Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={onClose}>
-                          Close
-                        </Button>
                       </Modal.Footer>
                     </Modal>
                     </div>
@@ -308,9 +296,6 @@ class App extends Component {
                       </Modal.Header>
                       <Modal.Body>Error email.Try again</Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={onClose}>
-                          Close
-                        </Button>
                       </Modal.Footer>
                     </Modal>
                     </div>
