@@ -20,8 +20,7 @@ app.post('/confirmUser',(req,res) => {
    const { Client } = require('pg');
    const client = new Client({
      connectionString: process.env.DATABASE_URL,
-     ssl: true,
-
+    ssl: true,
    });
 
    client.connect();
@@ -73,8 +72,7 @@ app.get('/api/hello', (req, res) => {
     const { Client } = require('pg');
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
-      ssl: true,
-
+    ssl: true,
     });
 
     client.connect();
@@ -103,8 +101,7 @@ app.post('/del',(req,res) => {
 
 const client = new Client({
  connectionString: process.env.DATABASE_URL,
- ssl: true,
-
+    ssl: true,
 });
 
 client.connect();
@@ -132,8 +129,7 @@ app.post('/api/res',(req,res) => {
 const { Client } = require('pg');
 const client = new Client({
 connectionString: process.env.DATABASE_URL,
-ssl: true,
-
+    ssl: true,
 });
 
 client.connect();
@@ -167,8 +163,7 @@ app.post('/forgot', (req, res) => {
   const { Client } = require('pg');
   const client = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: true,
-
+    ssl: true,
   });
 
   client.connect();
@@ -192,6 +187,7 @@ app.post('/forgot', (req, res) => {
 
 });
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.post('/api/world', (req, res) => {
   console.log("result : " + req.body.post);
@@ -206,8 +202,7 @@ app.post('/api/world', (req, res) => {
     const { Client } = require('pg');
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
-      ssl: true,
-
+    ssl: true,
     });
 
     client.connect();
