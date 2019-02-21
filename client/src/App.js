@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import axios from "axios";
 import Form from './components/FormRegister';
 import HomePage from './components/HomePage';
 import Main from './components/Main';
@@ -9,6 +7,11 @@ import Admin from './components/Admin';
 import ForgotPassword from './components/ForgotPassword';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './App.css';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import { Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+
 class App extends Component {
   state = {
     response: '',
@@ -27,7 +30,8 @@ class App extends Component {
     admin: false,
     forgotPassword: false,
     temp: '',
-    newPassword: ''
+    newPassword: '',
+    show: true
   };
 
   //скрытие формы в момент нажатия кнопки регистрации
@@ -48,8 +52,6 @@ class App extends Component {
           this.setState({formRegister: false, formLogIn: true, homePage: false});
       }.bind(this),300);
     };
-
-
 
     handleSubmit2 = async (e) =>{
         e.preventDefault();
@@ -83,10 +85,28 @@ class App extends Component {
             }.bind(this),400);
         }
         if(body !== 'admin' && body !== 'true') {
-            alert("Login or password is incorrect. Try again!");
+
+            confirmAlert({
+              customUI: ({ onClose }) => {
+            return (
+              <div>
+                <Modal size="sm" show={this.state.show} onHide={onClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Warning</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Username or Password is incorrect</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={onClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+                </div>
+            )}
+        })
+
         }
 
-        //this.loadData();
     };
 
   componentDidMount() {
@@ -108,7 +128,24 @@ class App extends Component {
       var password = document.getElementById("password").value;
       for(var i = 0; i < this.state.users.length; i++){
           if(name === this.state.users[i].name){
-            alert("Username is token.");
+            confirmAlert({
+              customUI: ({ onClose }) => {
+              return (
+                <div>
+                  <Modal size="sm" show={this.state.show} onHide={onClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Warning</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Username is taken.</Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={onClose}>
+                        Close
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  </div>
+              )}
+             })
             document.getElementById("name").value = '';
             break;
           }
@@ -130,8 +167,24 @@ class App extends Component {
                 },
                 body: JSON.stringify({ date: date, post: name, email: email, password: password }),
               });
-              alert("Thank you for registering");
-
+              confirmAlert({
+                customUI: ({ onClose }) => {
+              return (
+                <div>
+                  <Modal size="sm" show={this.state.show} onHide={onClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Success</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Thank you for registering</Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={onClose}>
+                        Close
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  </div>
+              )}
+          })
               this.setState({ main: false, formRegister: false, formLogIn: false });
               setTimeout(
               function() {
@@ -150,27 +203,49 @@ class App extends Component {
   };
 
   delUser = async e =>{
+    confirmAlert({
+      customUI: ({ onClose }) => {
+    return (
+      <div className = 'react-confirm-alert'>
+       <div className = "react-confirm-alert-body">
+        <h1 className = "conf">Are you sure?</h1>
+        <p>You want to delete this user?</p>
+        <div className = "react-confirm-alert-button-group">
+          <button  onClick = {onClose}>No</button>
+          <button type = "submit" value = {e.target.value} onClick = {
+            (e) => {
+              this.T(e)
+              onClose()
+            }}>Yes, Delete it!</button>
+        </div>
+         </div>
+      </div>
+    )
+  }
+})
+
+ }
+
+ T(e){
     e.preventDefault();
     var name = e.target.value;
     if(name === 'admin'){
       alert("You can't do it");
     }
     else{
-    const response = await fetch('/del', {
+    const response = fetch('/del', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ post: name }),
     });
-    const body = await response.text();
-    alert("User deleted");
+    //const body = await response.text();
+    //alert("User deleted");
     this.loadData();
-
   }
 
- }
-
+}
     forgotPassword = async e =>{
       this.setState({homePage: false, formLogIn: false})
 
@@ -190,7 +265,24 @@ class App extends Component {
         this.setState({users: data});
         for(var i = 0; i < this.state.users.length; i++){
             if(email === this.state.users[i].email){
-              alert("You receive on your email your password");
+              confirmAlert({
+                customUI: ({ onClose }) => {
+                return (
+                  <div>
+                    <Modal size="sm" show={this.state.show} onHide={onClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Warning</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>You receive on your email your password</Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={onClose}>
+                          Close
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                    </div>
+                )}
+               })
               const response = fetch('/forgot', {
                 method: 'POST',
                 headers: {
@@ -206,7 +298,24 @@ class App extends Component {
               break;
             }else {
               if( (i === this.state.users.length - 1) && email !== this.state.users[i].email){
-              alert("Error email.Try again");
+              confirmAlert({
+                customUI: ({ onClose }) => {
+                return (
+                  <div>
+                    <Modal size="sm" show={this.state.show} onHide={onClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Warning</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>Error email.Try again</Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={onClose}>
+                          Close
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                    </div>
+                )}
+               })
               document.getElementById('email').value = '';
               }
             }
@@ -215,14 +324,11 @@ class App extends Component {
 
     }
 
-
     loadData(){
       fetch(this.state.requestAddress).then(results => {return results.json()}).then(data => {
         this.setState({users: data});
     })
   }
-
-
 
 render() {
     return (

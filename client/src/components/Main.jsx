@@ -1,7 +1,6 @@
 import React from "react";
-import LogIn from './logIn';
-//создаем главный класс и унаследуем компоненты react
-function Main({onSubmit, onClick})//принятие свойства
+
+function Main({onSubmit, onClick})
 {
     return (
         <div className = "glava">

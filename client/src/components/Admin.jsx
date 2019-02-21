@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
-//создаем главный класс и унаследуем компоненты react
-
 class Admin extends Component{
+
   render()
   {
     return(
@@ -31,7 +30,8 @@ class Admin extends Component{
                          <td className = "td">{item.password}</td>
                          <td className = "td">{item.email}</td>
                          <td className = "td">{item.date}</td>
-                         <td className = "td"><button onClick = {this.props.delUser} value = {item.name} className = "btn btn-danger">Delete user</button></td>
+                         <td className = "td"><button onClick = {this.props.delUser}
+                         value = {item.name} className = "btn btn-danger">Delete user</button></td>
                      </tr>
                    );
                })
