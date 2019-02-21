@@ -222,7 +222,21 @@ class App extends Component {
     e.preventDefault();
     var name = e.target.value;
     if(name === 'admin'){
-      alert("You can't do it");
+      confirmAlert({
+        customUI: ({ onClose }) => {
+        return (
+          <div>
+            <Modal size="sm" show={this.state.show} onHide={onClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Warning</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>You have no rights</Modal.Body>
+              <Modal.Footer>
+              </Modal.Footer>
+            </Modal>
+            </div>
+        )}
+       })
     }
     else{
     const response = fetch('/del', {
