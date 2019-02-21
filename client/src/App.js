@@ -222,7 +222,7 @@ class App extends Component {
     e.preventDefault();
     var name = e.target.value;
     if(name === 'admin'){
-      alert("Error")
+      alert("You have no rights")
     }
     else{
     const response = fetch('/del', {
