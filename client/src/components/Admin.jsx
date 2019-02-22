@@ -10,7 +10,7 @@ class Admin extends Component{
       </div>
       <h2>Site Users</h2>
       <a href = "/" id = "ddc" className = "mdc-button mdc-button--primary mdc-button--raised"><span>Main</span></a>
-      <table className="table table-hover table-bordered table-dark" >
+      <table className="fixed_header table table-hover table-bordered table-dark" >
       <thead>
                 <tr>
                    <th scope = "col">Id</th>
@@ -21,7 +21,7 @@ class Admin extends Component{
                    <th scope = "col">Del user</th>
                </tr>
       </thead>
-       <tbody className = "overflow">
+       <tbody>
            {this.props.Get.map(item => {
                return (
                      <tr key={item.name}>
