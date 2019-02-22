@@ -21,7 +21,7 @@ class Admin extends Component{
                    <th scope = "col">Del user</th>
                </tr>
       </thead>
-       <tbody>
+       <tbody className = "overflow">
            {this.props.Get.map(item => {
                return (
                      <tr key={item.name}>
