@@ -7,7 +7,7 @@ class ForgotPassword extends Component{
 <div className="forgot">
 <form className = "signup-form mdc-theme--dark" onSubmit = {this.props.forgot}>
     <div class="msg">
-        Enter your email address that you used to register. We'll send you an email with your password
+        Enter your email address that you used to register. We'll send you an email with your new password
     </div>
     <div class="remain">
         <Input required id = "email" type="email" name="email" placeholder="Email" />

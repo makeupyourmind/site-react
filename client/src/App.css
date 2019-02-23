@@ -1,19 +1,53 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900";
 
-.fixed_header{
-    table-layout: fixed;
-    border-collapse: collapse;
+.dvig{
+  width: 1209px;
 }
 
-.fixed_header tbody{
-  display:block;
-  overflow: auto;
-  height: 530px;
-}
-
-.overflow{
-  height: 500px;
+.cont{
+  height: 410px;
   overflow-y: auto;
+  width: 1208px;
+  margin-top: 50px;
+}
+
+table{
+  margin-top: -25px;
+  width: 1190px;
+}
+
+.table{
+  margin-bottom: 0rem;
+  width: 1190px;
+
+}
+
+.table tbody, .table thead{
+  width: 1530px;
+}
+
+.table thead .th{
+  opacity: 0;
+}
+
+.table thead th{
+  width: auto;
+  height: auto;
+  padding: 0;
+}
+
+.table thead th div{
+  color: white;
+  position: absolute;
+  margin-top: -44px;
+  opacity: 1;
+  border: 1px solid #292222;
+  background: #110202;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  margin-left: -1px;
+  border-right: 0px red solid;
 }
 
 .modal-body{
@@ -97,9 +131,6 @@ a:hover{text-decoration: none}
   height: 200px;
 }
 
-.realod{
-  margin-left: 670px;
-}
 
 h2{
   text-align: center;
@@ -109,10 +140,6 @@ h2{
 h1{
   font-size: 2.2vw;
   color: #aab6d4;
-}
-
-.table{
-  width: 750px;
 }
 
 .main{
@@ -178,4 +205,16 @@ h1{
   margin-top: -30px;
   opacity: .01;
   transition: opacity .3s ease, margin .5s ease;
+}
+
+@-moz-document url-prefix() {
+
+  .dvig{
+    width: 1191px;
+  }
+
+  .cont{
+    width: 1190px;
+  }
+
 }

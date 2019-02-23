@@ -6,19 +6,18 @@ class Admin extends Component{
   {
     return(
       <div>
-      <div className = "realod">
-      </div>
       <h2>Site Users</h2>
       <a href = "/" id = "ddc" className = "mdc-button mdc-button--primary mdc-button--raised"><span>Main</span></a>
-      <table className="fixed_header table table-hover table-bordered table-dark" >
+      <div class="cont">
+      <table className = "table table-hover table-bordered table-dark">
       <thead>
                 <tr>
-                   <th scope = "col">Id</th>
-                   <th scope = "col">Name</th>
-                   <th scope = "col">Password</th>
-                   <th scope = "col">Email</th>
-                   <th scope = "col">Date of registration</th>
-                   <th scope = "col">Del user</th>
+                   <th scope = "col"><span className = "th">Id</span> <div className = "dvig">Id</div></th>
+                   <th scope = "col"><span className = "th">Name</span> <div>Name</div></th>
+                   <th scope = "col"><span className = "th">Password</span> <div>Password</div></th>
+                   <th scope = "col"><span className = "th">Email</span> <div>Email</div></th>
+                   <th scope = "col"><span className = "th">Registration</span> <div>Registration</div></th>
+                   <th scope = "col"><span className = "th">Del user</span> <div>Del user</div></th>
                </tr>
       </thead>
        <tbody>
@@ -38,6 +37,7 @@ class Admin extends Component{
            }
        </tbody>
       </table>
+      </div>
       </div>
     )
   }
