@@ -82,16 +82,10 @@ app.get('/api/hello', (req, res) => {
         //console.log("select login : " + JSON.stringify(row));
       }
       res.send(result.rows);// {express:}
-      //console.log("result logIn : ", result.rows[0]);
-        //res.send(bcrypt.hashSync(result.rows, salt))
-      //res.send(bcrypt.compareSync(result.rows[3].password,salt));
       client.end();
     });
 
 });
-
-
-
 
 
 app.post('/del',(req,res) => {
@@ -111,15 +105,13 @@ client.query('Delete from usersdata Where name =$1', [name], function (err,resul
  {
    console.log(err);
  }
- //res.status(200).send(result.rows);
- //console.log(result.rows);
+
 })
 res.send(
   `User deleted`,
 );
 
 })
-
 
 app.post('/api/res',(req,res) => {
 
@@ -153,7 +145,7 @@ client.query('SELECT name from usersdata WHERE name = $1 ', [name], (err, result
   client.end();
 });
 
-})//это для пост api/res
+})
 
 app.post('/forgot', (req, res) => {
   console.log(req.body.post);
@@ -188,7 +180,6 @@ app.post('/forgot', (req, res) => {
 });
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.post('/api/world', (req, res) => {
   console.log("result : " + req.body.post);
     var date = req.body.date;
@@ -203,7 +194,6 @@ app.post('/api/world', (req, res) => {
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
     ssl: true,
-
     });
 
     client.connect();

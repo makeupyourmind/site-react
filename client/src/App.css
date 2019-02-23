@@ -212,4 +212,9 @@ h1{
   .cont{
     width: 1190px;
   }
+
+  .msg{
+    margin-bottom: 30px;
+  }
+
 }
