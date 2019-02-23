@@ -103,6 +103,7 @@ a:hover{text-decoration: none}
 
 #ddc{
   background-color: #569047;
+  margin-left: 1px;
 }
 
 .div{
@@ -118,19 +119,16 @@ a:hover{text-decoration: none}
 
 .remain{
   text-align: center;
+  margin-top: 14px;
+  border: 1px solid red;
+  width: 300px;
 }
 
 .msg{
   color: #6481c8;
   text-align: center;
-  margin-bottom: 15px;
+  margin-top: -60px;
 }
-
-.forgot{
-  width: 350px;
-  height: 200px;
-}
-
 
 h2{
   text-align: center;
@@ -208,13 +206,10 @@ h1{
 }
 
 @-moz-document url-prefix() {
-
   .dvig{
     width: 1191px;
   }
-
   .cont{
     width: 1190px;
   }
-
 }
