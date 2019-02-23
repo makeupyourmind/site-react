@@ -1,10 +1,11 @@
 import React from "react";
 
-function Input({ autoFocus, required, id, type, name, placeholder }){
+function Input({ autocomplete, autoFocus, required, id, type, name, placeholder }){
 
     return (
           <div className = "mdc-textfield">
             <input
+              autocomplete = {autocomplete}
               autoFocus = {autoFocus}
               required = {required}
               id = {id}
