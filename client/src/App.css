@@ -5,7 +5,7 @@
 }
 
 .cont{
-  height: 410px;
+  height: 440px;
   overflow-y: auto;
   width: 1208px;
   margin-top: 50px;
@@ -18,8 +18,7 @@ table{
 
 .table{
   margin-bottom: 0rem;
-  width: 1190px;
-
+  width: 100%;
 }
 
 .table tbody, .table thead{
