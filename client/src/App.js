@@ -85,7 +85,6 @@ class App extends Component {
             }.bind(this),400);
         }
         if(body !== 'admin' && body !== 'true') {
-
             confirmAlert({
               customUI: ({ onClose }) => {
             return (
@@ -101,6 +100,7 @@ class App extends Component {
                 </div>
             )}
         })
+        document.getElementById("name").value = '';
 
         }
 
