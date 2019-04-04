@@ -213,6 +213,18 @@ p{
   transition: opacity .3s ease, margin .5s ease;
 }
 
+.blockInfoUser{
+  height: 200px;
+  margin-top: 20px;
+}
+
+.infoUser{
+  font-size: 14px;
+  color : #000000;
+  text-align: left;
+  margin-left: 20px;
+}
+
 @-moz-document url-prefix() {
   .dvig{
     width: 1191px;

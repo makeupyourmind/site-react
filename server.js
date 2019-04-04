@@ -3,14 +3,31 @@ const path = require('path');
 var bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/temp', (req,res, data) =>{
-  //res.send(name);
-   //console.log("data : "+ data.name);
+app.post('/findInfo', (req,res, data) =>{
+
+  var name = req.body.post;
+
+  const { Client } = require('pg');
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+   ssl: true,
+  });
+
+  client.connect();
+
+  client.query('select id, name, password, email, date from usersdata where name = $1',[name], (err, result) => {
+
+    for (let row of result.rows) {
+    }
+    res.send(result.rows);// {express:}
+    client.end();
+  });
+
 });
 
 app.post('/confirmUser',(req,res) => {
@@ -76,8 +93,10 @@ app.get('/api/hello', (req, res) => {
     });
 
     client.connect();
+    //res.send("ok");
     client.query('select *from usersdata', (err, result) => {
-      if (err) throw err;
+      //console.log(result);
+      //if (err) throw err;
       for (let row of result.rows) {
         //console.log("select login : " + JSON.stringify(row));
       }
@@ -193,7 +212,7 @@ app.post('/api/world', (req, res) => {
     const { Client } = require('pg');
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    //ssl: true,
     });
 
     client.connect();

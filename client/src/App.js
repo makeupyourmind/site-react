@@ -31,7 +31,9 @@ class App extends Component {
     forgotPassword: false,
     temp: '',
     newPassword: '',
-    show: true
+    show: true,
+    usersInfo: [],
+    requestAddressForInfo: '/findInfo'
   };
 
   //скрытие формы в момент нажатия кнопки регистрации
@@ -67,9 +69,21 @@ class App extends Component {
       fetch(this.state.requestAddress).then(results => {return results.json()}).then(data => {
          this.setState({users: data});
        })
-       //this.loadData();
-        const body = await response.text();
 
+       fetch("findInfo",{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ post: name}),
+      })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({usersInfo: json});
+      });
+
+        const body = await response.text();
+        //alert("body : " + body);
         if(body === 'admin'){
           this.setState({formLogIn: false})
           setTimeout(
@@ -316,6 +330,7 @@ class App extends Component {
     })
   }
 
+
 render() {
     return (
       <div className="app">
@@ -344,7 +359,7 @@ render() {
                    transitionEnter = {false}//спрятать и показать элемент по умолчанию значение true
                    transitionLeave = {true}>
                    {this.state.admin && <Admin Get = {this.state.users} delUser = {this.delUser} refreshData = {this.loadData()}/>}
-                   {this.state.homePage && <HomePage/>}
+                   {this.state.homePage && <HomePage usersInfo = {this.state.usersInfo}  /*refreshData = {this.loadDataUser()}*//>}
                 </CSSTransitionGroup>
              </CSSTransitionGroup>
            </CSSTransitionGroup>
