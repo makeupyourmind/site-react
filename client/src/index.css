@@ -1,5 +1,6 @@
 body {
-    background-image: url(/dojo.jpg);
+    /*background-image: url(/dojo.jpg);*/
+    background: url('/dojo.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
